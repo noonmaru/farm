@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO crops (world_id, x, y, z, planted_time) VALUES (?, ?, ?, ?, ?);

@@ -1,0 +1,1 @@
+UPDATE crops SET deleted=true WHERE world_id=? AND x=? AND y=? AND z=?;
