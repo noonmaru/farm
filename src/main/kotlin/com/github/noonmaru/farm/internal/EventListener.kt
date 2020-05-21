@@ -90,11 +90,29 @@ class EventListener(private val manager: FarmManagerImpl) : Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler(
+        priority = EventPriority.HIGHEST,
+        ignoreCancelled = true
+    ) // Issue #1 https://github.com/noonmaru/farm/issues/1
     fun onBlockForm(event: BlockFadeEvent) {
         if (event.block.type == Material.FARMLAND) {
             event.isCancelled = true
         }
+    }
+
+    @EventHandler(
+        priority = EventPriority.LOWEST,
+        ignoreCancelled = true
+    ) // Issue #1 https://github.com/noonmaru/farm/issues/1
+    fun onBlockGrow(event: BlockDispenseEvent) {
+        if (event.item.type == Material.BONE_MEAL) {
+            event.isCancelled = true
+        }
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    fun onBlockGrow(event: BlockGrowEvent) {
+        event.isCancelled = true
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
