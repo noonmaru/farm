@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8")) //kotlin
+    compileOnly(kotlin("stdlib-jdk8")) //kotlin
     compileOnly("com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT") //paper
     compileOnly("com.comphenix.protocol:ProtocolLib:4.5.0") //protocollib
     compileOnly("com.github.noonmaru:tap:2.3.3") //tap
