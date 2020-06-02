@@ -81,7 +81,12 @@ class EventListener(private val manager: FarmManagerImpl) : Listener {
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     fun onBlockPlace(event: BlockPlaceEvent) {
         val block = event.block
-        val blockData = block.blockData
+        var blockData = block.blockData
+
+        if (blockData.material == Material.DIRT && event.itemInHand.type == Material.FARMLAND) {
+            // Issue #2 https://github.com/noonmaru/farm/issues/2
+            blockData = Material.FARMLAND.createBlockData()
+        }
 
         if (blockData.material == Material.FARMLAND) {
             val farmland = blockData as Farmland
