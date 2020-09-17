@@ -96,6 +96,7 @@ abstract class CropType(
         val DARK_OAK_TREE: CropType = Tree("Dark oak tree", Material.DARK_OAK_SAPLING, TreeType.DARK_OAK)
         val JUNGLE_TREE: CropType = Tree("Jungle tree", Material.JUNGLE_SAPLING, TreeType.SMALL_JUNGLE)
         val OAK_TREE: CropType = Tree("Oak tree", Material.OAK_SAPLING, TreeType.TREE)
+        val SPRUCE_TREE : CropType = Tree("Spruce tree", Material.SPRUCE_SAPLING, TreeType.REDWOOD)
 
         //mushrooms
         val BROWN_MUSHROOM: CropType = Tree("Brown mushroom", Material.BROWN_MUSHROOM, TreeType.BROWN_MUSHROOM)
@@ -107,22 +108,23 @@ abstract class CropType(
 
         init {
             types = ImmutableList.of(
-                BEAT,
-                CARROT,
-                COCOA,
-                NETHER_WART,
-                POTATO,
-                SWEET_BERRY,
-                WHEAT,
-                MELON,
-                PUMPKIN,
-                ACACIA_TREE,
-                BIRCH_TREE,
-                DARK_OAK_TREE,
-                JUNGLE_TREE,
-                OAK_TREE,
-                BROWN_MUSHROOM,
-                RED_MUSHROOM
+                    BEAT,
+                    CARROT,
+                    COCOA,
+                    NETHER_WART,
+                    POTATO,
+                    SWEET_BERRY,
+                    WHEAT,
+                    MELON,
+                    PUMPKIN,
+                    ACACIA_TREE,
+                    SPRUCE_TREE,
+                    BIRCH_TREE,
+                    DARK_OAK_TREE,
+                    JUNGLE_TREE,
+                    OAK_TREE,
+                    BROWN_MUSHROOM,
+                    RED_MUSHROOM
             )
 
             for (type in types) {
