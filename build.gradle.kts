@@ -46,7 +46,7 @@ tasks {
     }
     create<Copy>("distJar") {
         from(shadowJar)
-        into("W:\\Servers\\2020-05-22 043000-paper-300\\plugins")
+        into("/home/zlfn")
     }
 }
 
