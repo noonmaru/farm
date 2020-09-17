@@ -242,6 +242,9 @@ abstract class CropType(
 
         override val result: CropStage.Result = CropStage.result { block, _ ->
             val blockData = block.blockData
+            val underLoc = block.location.add(0.0, -1.0, 0.0)
+            val underBlock = underLoc.getBlock()
+            val underBlockDataClone = underBlock.blockData.clone()
             block.blockData = Material.AIR.createBlockData()
             if (!block.world.generateTree(block.location, treeType)) {
                 block.blockData = blockData
@@ -249,6 +252,11 @@ abstract class CropType(
                 val loc = block.location.add(0.5, 0.5, 0.5)
                 block.world.spawnParticle(Particle.SMOKE_LARGE, loc.x, loc.y, loc.z, 10, 0.1, 0.1, 0.1)
             }
+            if (underBlockDataClone.material == Material.FARMLAND)
+            { //Issue #3 https://github.com/noonmaru/farm/issues/3
+                underBlock.setBlockData(underBlockDataClone)
+            }
+
         }
     }
 }
